@@ -1,0 +1,58 @@
+[
+    {
+        "image": "image12.jpg",
+        "sentences": [
+            "I love him.:::Я люблю его.",
+            "I teach her.:::Я учу ее."
+        ]
+    },
+    {
+        "image": "image7.jpg",
+        "sentences": [
+            "I hate them.:::Я ненавижу их.",
+            "I love you.:::Я люблю тебя."
+        ]
+    },
+    {
+        "image": "image1.jpg",
+        "sentences": [
+            "She trusts me.:::Она верит мне.",
+            "He teaches me.:::Он учит меня."
+        ]
+    },
+    {
+        "image": "image17.jpg",
+        "sentences": [
+            "It bothers her.:::[Это] беспокоит ее.",
+            "She knows it.:::Она знает это."
+        ]
+    },
+    {
+        "image": "image11.jpg",
+        "sentences": [
+            "He trusts you.:::Он любит тебя.",
+            "It changes us.:::[Это] меняет нас."
+        ]
+    },
+    {
+        "image": "image8.jpg",
+        "sentences": [
+            "You look for me.:::Ты ищешь меня.",
+            "It changes us.:::[Это] меняет нас."
+        ]
+    },
+    {
+        "image": "image10.jpg",
+        "sentences": [
+            "They bother us.:::Они беспокоят нас.",
+            "You help them.:::Ты помогаешь им."
+        ]
+    },
+    {
+        "image": "image13.jpg",
+        "sentences": [
+            "We trust him.:::Мы доверяем ему.",
+            "We love it.:::Мы любим [это]."
+        ]
+    }
+]

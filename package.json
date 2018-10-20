@@ -1,5 +1,5 @@
 {
-  "name": "grammar",
+  "name": "grammar_alpha",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "emoji-mart-vue": "^2.6.4",
     "vue": "^2.5.17",
+    "vue-carousel": "^0.14.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
