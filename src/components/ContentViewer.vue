@@ -7,8 +7,10 @@
                     <img v-else class="img-fluid" :src="DEFAULT_IMAGE_URL"/>
                 </div>
                 <div v-else-if="block.type===contentType.YOUTUBE">
-                    <div v-html="block.content" v-if="block.content"></div>
-                    <div v-html="DEFAULT_YOUTUBE_URL" v-else></div>
+                    <div class="videoWrapper">
+                        <div v-html="block.content" v-if="block.content"></div>
+                        <div v-html="DEFAULT_YOUTUBE_URL" v-else></div>
+                    </div>
                 </div>
                 <div v-else-if="block.type===contentType.LABELED_TEXT" :class="block.type">
                     <div class="labeled_emoji" v-if="block.emoji">
@@ -115,11 +117,27 @@
     #article >>> p {
         margin-bottom: 0;
     }
+
     #article >>> ul, #article >>> ol {
         margin-bottom: 0;
     }
 
     #article >>> em {
         font-family: 'EB Garamond', serif;
+    }
+
+    #article >>> .videoWrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+    }
+
+    #article >>> .videoWrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 </style>

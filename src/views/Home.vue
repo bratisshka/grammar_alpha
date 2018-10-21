@@ -12,11 +12,23 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <content-viewer :blocks="main_data"></content-viewer>
+                        <main-viewer :blocks="main_data"></main-viewer>
                     </div>
                 </div>
             </div>
         </div>
+        <router-link :to="{name: 'lessons'}">
+            <div class="row mt-2">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-right">Приступить</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </router-link>
     </div>
 
 
@@ -24,12 +36,12 @@
 
 <script>
 
-    import ContentViewer from "../components/ContentViewer";
+    import MainViewer from "../components/MainViewer";
     import main_data from "../assets/main_content";
 
     export default {
         name: 'home',
-        components: {ContentViewer},
+        components: {MainViewer},
         data() {
             return {
                 main_data: []

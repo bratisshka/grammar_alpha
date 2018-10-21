@@ -1,13 +1,13 @@
 <template>
     <div>
         <!--<div class="row">-->
-            <!--<div class="col-md-6">-->
-                <!--<h2>Урок #{{lesson.number}}</h2>-->
-                <!--<h2>{{lesson.name}}</h2>-->
-            <!--</div>-->
-            <!--<div class="col-md-6">-->
-                <!--<div v-html="lesson.description" class="gr-lesson-content"></div>-->
-            <!--</div>-->
+        <!--<div class="col-md-6">-->
+        <!--<h2>Урок #{{lesson.number}}</h2>-->
+        <!--<h2>{{lesson.name}}</h2>-->
+        <!--</div>-->
+        <!--<div class="col-md-6">-->
+        <!--<div v-html="lesson.description" class="gr-lesson-content"></div>-->
+        <!--</div>-->
         <!--</div>-->
         <div class="row mb-5">
             <div class="col-md-8">
@@ -20,38 +20,74 @@
         </div>
         <carousel :per-page="3" :space-padding="0">
             <slide>
-                <div class="card mx-2">
-                    <div class="card-body">
-                        Slide 1 content
-                    </div>
-                </div>
-            </slide>
-            <slide>
-                <div class="card mx-2">
+                <div class="card mx-2" :style="{'height': '320px'}">
                     <div class="card-body">
                         <div class="card-title">
                             <div class="row">
-                                <div class="col-lg-9">
-                                    <h5>Карточка 1.</h5>
-                                    <h5>Структура грамматики</h5>
+                                <div class="col-lg-8">
+                                    <p class="lesson-header">Карточка 1. Структура грамматики</p>
                                 </div>
-                                <div class="col-lg-3">
-                                    <p>5 мин.</p>
+                                <div class="col-lg-4">
+                                    <p class="lesson-info">5 мин.</p>
                                 </div>
                             </div>
                             <img class="img-fluid"
                                  src="https://s3.us-east-2.amazonaws.com/alred-static/media/public/media/c710366be05c09da455187caa7fca7a9_dIxw4eK.png">
                         </div>
-                        <div class="gr-lesson-content">
+                        <div class="gr-lesson-content mb-3">
                             <div v-html="lesson.description"></div>
                         </div>
+                        <router-link :to="{ name: 'card', params: { id: lesson.number, number: 1}}">
+                            <div class="btn btn-sm btn-go float-right">Приступить</div>
+                        </router-link>
                     </div>
                 </div>
             </slide>
             <slide>
-                <div class="card mx-2">
+                <div class="card mx-2" :style="{'height': '320px'}">
                     <div class="card-body">
-                        Slide 3 content
+                        <div class="card-title">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <p class="lesson-header">Карточка 2. Объекты</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <p class="lesson-info">17 мин.</p>
+                                </div>
+                            </div>
+                            <img class="img-fluid"
+                                 src="https://s3.us-east-2.amazonaws.com/alred-static/media/public/media/c710366be05c09da455187caa7fca7a9_dIxw4eK.png">
+                        </div>
+                        <div class="gr-lesson-content mb-3">
+                            <div v-html="lesson.description"></div>
+                        </div>
+                        <router-link :to="{ name: 'card', params: { id: lesson.number, number: 2}}">
+                            <div class="btn btn-sm btn-go float-right">Приступить</div>
+                        </router-link>
+                    </div>
+                </div>
+            </slide>
+            <slide>
+                <div class="card mx-2" :style="{'height': '320px'}">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <p class="lesson-header">Карточка 3. Существительное</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <p class="lesson-info">5 мин.</p>
+                                </div>
+                            </div>
+                            <img class="img-fluid"
+                                 src="https://s3.us-east-2.amazonaws.com/alred-static/media/public/media/c710366be05c09da455187caa7fca7a9_dIxw4eK.png">
+                        </div>
+                        <div class="gr-lesson-content mb-3">
+                            <div v-html="lesson.description"></div>
+                        </div>
+                        <router-link :to="{ name: 'card', params: { id: lesson.number, number: 3}}">
+                            <div class="btn btn-sm btn-go float-right">Приступить</div>
+                        </router-link>
                     </div>
                 </div>
             </slide>
@@ -77,6 +113,7 @@
     import {Carousel, Slide} from 'vue-carousel';
     import lesson_content from "../assets/lesson_content"
     import ContentViewer from "../components/ContentViewer";
+
     export default {
         name: "lesson-item",
         components: {
@@ -105,11 +142,35 @@
 </script>
 
 <style scoped>
-    .gr-lesson-content >>> p, .gr-lesson-content >>> ol {
+    .lesson-header {
+        text-transform: uppercase;
+        color: #D10000;
+    }
+
+    .lesson-info {
+        color: #0D2D44
+    }
+
+    .btn-go {
+        background-color: #0D2D44;
+        color: white;
+    }
+
+    .btn-go:hover {
+        background-color: #1f6da5;
+    }
+
+    .gr-lesson-content >>> p {
+        color: #D10000;
+        margin-bottom: 0;
+    }
+
+    .gr-lesson-content >>> ol {
+        padding-left: 1rem;
         margin-bottom: 0;
     }
 
     /*.card {*/
-        /*background-color: #f5f5f5;*/
+    /*background-color: #f5f5f5;*/
     /*}*/
 </style>
