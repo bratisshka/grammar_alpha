@@ -27,7 +27,7 @@
                 <div class="card">
                     <div class="card-body">
                         <router-view></router-view>
-                        <div class="d-flex justify-content-end" v-if="steps[currentStep].router.name!=='simulator' && currentStep < steps.length-1">
+                        <div class="d-flex justify-content-end" v-if="steps[currentStep].router.name!=='simulator' && currentStep < steps.length - 1 ">
                             <router-link :to="steps[currentStep+1].router">
                                 <div class="btn btn-success mr-2">Далее</div>
                             </router-link>
@@ -218,12 +218,12 @@
         background-color: #1f6da5;
     }
 
-    .gr-lesson-content >>> p {
+    .gr-lesson-content > > > p {
         color: #D10000;
         margin-bottom: 0;
     }
 
-    .gr-lesson-content >>> ol {
+    .gr-lesson-content > > > ol {
         padding-left: 1rem;
         margin-bottom: 0;
     }
@@ -261,6 +261,7 @@
     .audio_active {
         background-color: cornflowerblue;
     }
+
     @media (max-width: 576px) {
         .card, .card-body {
             padding-left: 0;
