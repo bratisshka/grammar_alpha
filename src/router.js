@@ -20,20 +20,25 @@ export default new Router({
             },
             {
                 path: '/lessons/:id/',
-                name: 'lesson',
-                component: () => import('./views/LessonItem.vue')
+                component: () => import('./views/Lesson/Lesson.vue'),
+                children: [
+                    {
+                        path: '',
+                        name: 'lesson_intro',
+                        component: () => import('./views/Lesson/Home.vue')
+                    },
+                    {
+                        path: 'cards/:number/',
+                        name: 'card',
+                        component: () => import('./views/Lesson/CardItem.vue')
+                    },
+                    {
+                        path: 'simulator/:type/',
+                        name: 'simulator',
+                        component: () => import('./views/Lesson/SimulatorView.vue')
+                    },
+                ]
             },
-            {
-                path: '/lessons/:id/simulator/:type/',
-                name: 'simulator',
-                component: () => import('./views/SimulatorView.vue')
-            },
-            {
-                path: '/lessons/:id/cards/:number/',
-                name: 'card',
-                component: () => import('./views/CardItem.vue')
-            },
-
             {
                 path: '/grammar-tren/',
                 name: 'grammar-tren',

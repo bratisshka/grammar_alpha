@@ -1,8 +1,24 @@
 <template>
     <div>
-        <h1>Grammar Tren Page</h1>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" v-model="control_type"
+                           value="simulator">
+                    <label class="form-check-label" for="inlineRadio1">Simulator</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" v-model="control_type"
+                           value="player">
+                    <label class="form-check-label" for="inlineRadio2">Player</label>
+                </div>
+
+                <grammar-component :examples="cards_data[current_card]" :card="current_card"
+                                   :control_type="control_type"></grammar-component>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
                 <div class="card mb-2" :class="{active: current_card==='card4'}">
                     <div class="gt-card-body" @click="current_card='card4'">
                         <div class="row">
@@ -33,21 +49,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-8">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" v-model="control_type"
-                           value="simulator">
-                    <label class="form-check-label" for="inlineRadio1">Simulator</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" v-model="control_type"
-                           value="player">
-                    <label class="form-check-label" for="inlineRadio2">Player</label>
-                </div>
-
-                <grammar-component :examples="cards_data[current_card]" :card="current_card"
-                                   :control_type="control_type"></grammar-component>
             </div>
         </div>
     </div>

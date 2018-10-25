@@ -4,10 +4,12 @@
         <div v-for="(block, index) in content">
             <div class="card mb-2" v-if="block.image">
                 <div class="row">
-                    <div class="col-sm-3" :class="{'order-12': index % 2}">
-                        <img v-if="block.image.content" class="img-fluid" :src="block.image.content"/>
+                    <div class="col-sm-3 mb-sm-0 mb-3" :class="{'order-sm-12': index % 2}">
+                        <div class="img-wrapper d-flex justify-content-center align-items-center">
+                            <img v-if="block.image.content" :src="block.image.content"/>
+                        </div>
                     </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-9 ">
                         <div v-html="block.text.content"></div>
                     </div>
                 </div>
@@ -126,7 +128,11 @@
     }
 
     .card {
-        padding: 1.5rem
+        padding: 1.5rem;
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        border-radius: 0;
     }
 
     #article {
@@ -135,12 +141,14 @@
         font-weight: 300;
         color: #0D2D44;
     }
+
     #article >>> strong {
         color: #D10000;
     }
-    #article >>> img {
-        width: 100%;
-    }
+
+    /*#article >>> img {*/
+    /*width: 100%;*/
+    /*}*/
 
     #article >>> h1 {
         font-size: 3rem;
@@ -152,6 +160,7 @@
         font-size: 1.8rem;
         text-transform: uppercase;
         font-weight: 900;
+        margin-top: 30px;
     }
 
     #article >>> h3 {
@@ -171,5 +180,46 @@
 
     #article >>> em {
         font-family: 'EB Garamond', serif;
+    }
+
+    .img-wrapper {
+        height: 100%;
+    }
+
+    .card img {
+        max-width: 50%;
+        max-height: 100%;
+    }
+
+    @media (max-width: 968px) {
+        .card img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .card, .card-body {
+            padding-left: 0;
+            padding-right: 0;
+            font-size: 16px;
+            line-height: 22px;
+        }
+
+        #article >>> h2 {
+            /*font-size: 28px;*/
+            margin-top: 30px;
+        }
+
+        .card img {
+            max-width: 50%;
+            max-height: 50%;
+        }
+        .img-wrapper {
+            height: inherit;
+            /*width: 50%;*/
+
+        }
+
     }
 </style>

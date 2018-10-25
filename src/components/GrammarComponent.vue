@@ -169,4 +169,5 @@
     .material-icons {
         cursor: pointer;
     }
+
 </style>

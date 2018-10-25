@@ -1,39 +1,41 @@
 <template>
     <div>
         <div class="row mb-3" v-for="lesson in lesson_list">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <span class="lesson-header">Урок 1. Основы</span>
-                            </div>
-                            <div class="col-md-8 lesson-info">
-                                <span class="mr-2"><b>26</b> мин</span>
-                                <span class="mr-2"><b>8</b> карточек</span>
-                                <span><b>115</b> тренажеров</span>
-                            </div>
-
-                        </div>
-                    </div>
+                    <div class="lesson-header bg-black"><b>Урок 1.</b> Основы</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-4">
                                 <img :src="lesson.image" class="img-fluid">
                             </div>
-                            <div class="col-md-8">
-                                <div v-html="lesson.description" class="card-content"></div>
+                            <div class="col-sm-8 mb-2">
+                                <div class="card-content d-flex align-items-center">
+                                    <div v-html="lesson.description"></div>
+                                </div>
                             </div>
                         </div>
-                        <router-link :to="{ name: 'lesson', params: { id: lesson.number}}">
-                            <div class="btn btn-sm btn-go float-right">Приступить</div>
-                        </router-link>
+                        <div class="d-flex align-items-center">
+                            <div class="mr-3 d-flex align-items-center">
+                                <img class="stats-icon mr-2"
+                                     src="https://cdn0.iconfinder.com/data/icons/everyday-objects-line-art-1/128/stopwatch-512.png">
+                                <span class="stats-text">26 min</span>
+                            </div>
+                            <div class="mr-auto d-flex align-items-center">
+                                <img class="stats-icon mr-2"
+                                     src="https://cdn2.iconfinder.com/data/icons/simple-medical/256/Dr._Slip-512.png">
+                                <span class="stats-text">8 cards</span>
+                            </div>
+                            <router-link :to="{ name: 'lesson_intro', params: { id: lesson.number}}">
+                                <div class="btn btn-success float-right">Начать</div>
+                            </router-link>
+                        </div>
                     </div>
                 </div>
 
             </div>
+
         </div>
-    </div>
     </div>
 </template>
 
@@ -62,7 +64,7 @@
 <style scoped>
     .lesson-header {
         text-transform: uppercase;
-        color: #D10000;
+        padding: 15px
     }
 
     .lesson-info {
@@ -77,21 +79,39 @@
     .btn-go:hover {
         background-color: #1f6da5;
     }
+
+    .stats-icon {
+        width: 3.5vw;
+        max-width: 40px;
+    }
+
+    .stats-text {
+        text-transform: uppercase;
+        /*padding-left: 1vw;*/
+        font-size: 1rem;
+    }
+
     .card-content {
         font-family: Roboto, sans-serif;
+        background-color: #D1DDE9;
+        padding: 10px;
+        height: 100%;
     }
+
     .card-content >>> p {
         margin-bottom: 0;
-        color: #D10000;
+        font-size: 1rem;
     }
+
     .card-content >>> ol {
         padding-left: 1rem;
         line-height: 1.3rem;
+        margin-bottom: 0;
     }
 
-    @media (min-width: 576px) {
-        .lesson-info {
-            text-align: right;
+    @media (max-width: 576px) {
+        .stats-icon {
+            width: 7vw;
         }
     }
 </style>

@@ -51,6 +51,16 @@
                     "YOUTUBE": "youtube"
                 },
             }
+        },
+        methods: {
+            cardObject(card) {
+                if (card.number === parseInt(this.$route.params.number)) {
+                    return card.type + "_active";
+                }
+                else {
+                    return card.type
+                }
+            }
         }
     }
 </script>
@@ -58,10 +68,10 @@
 <style scoped>
     .goals {
         border-radius: .25rem;
-        background: rgb(255, 242, 204);
+        background-color: #D1DDE9;
         border: 1px solid rgba(0, 0, 0, .125);
         margin: 10px 0px;
-        padding: 5px;
+        padding: 10px;
     }
 
     .example {
@@ -140,4 +150,10 @@
         width: 100%;
         height: 100%;
     }
+    @media (max-width: 576px) {
+       #article >>> h1 {
+           font-size: 30px;
+       }
+    }
+
 </style>
