@@ -9,8 +9,8 @@
     </div>
 </template>
 <script>
-    import ContentViewer from '../../components/ContentViewer.vue';
-    import ExamplesTrainer from '../../components/ExamplesTrainer.vue';
+    import ContentViewer from '../../components/Lesson/ContentViewer.vue';
+    import ExamplesTrainer from '../../components/Lesson/ExamplesTrainer.vue';
     import cards_data from '../../assets/cards_content';
     import card4_examples from '../../assets/card4/info.json';
     import card8_examples from '../../assets/card8/info.json';

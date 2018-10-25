@@ -92,6 +92,7 @@
             current_example(to, from) {
                 this.show_en = false;
                 this.show_ru = false;
+                this.playAudio(this.current_example.id, 'en', this.current_example.card);
             }
         }
     }

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import ContentViewer from "../../components/ContentViewer";
+    import ContentViewer from "../../components/Lesson/ContentViewer";
     import lesson_content from "../../assets/lesson_content"
 
     export default {

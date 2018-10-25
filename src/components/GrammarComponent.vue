@@ -85,15 +85,30 @@
                 current_index: 0,
                 step: ['en', 'ru'],
                 step_index: -1,
-                is_playing: false
+                is_playing: false,
+                snd: "",
             }
         },
         methods: {
             autoSentencePlay() {
                 if (!this.is_playing) {
                     this.is_playing = true;
-                    this.nextStep()
+                    if (this.snd) {
+                        let $app = this;
+                        $app.snd.onended = function () {
+                            if ($app.control_type === 'player' && $app.is_playing) {
+                                $app.nextStep();
+                            }
+                        };
+                        this.snd.play();
+                    }
+                    else {
+                        this.nextStep();
+                    }
+
                 } else {
+                    if (this.snd)
+                        this.snd.pause();
                     this.is_playing = false;
                 }
             },
@@ -137,14 +152,16 @@
             },
             playAudio(id, lang) {
                 let source = this.base_url + this.card + '/' + lang + '/' + id + '.mp3';
-                let snd = new Audio(source);
+                if (this.snd)
+                    this.snd.pause();
+                this.snd = new Audio(source);
                 let $app = this;
-                snd.onended = function () {
+                $app.snd.onended = function () {
                     if ($app.control_type === 'player' && $app.is_playing) {
                         $app.nextStep();
                     }
                 };
-                snd.play();
+                this.snd.play();
 
             },
             image_url(image_name) {

@@ -17,7 +17,7 @@
 </template>
 
 <script>
-    import VisualExam from '../../components/VisualExam.vue'
+    import VisualExam from '../../components/Exam/VisualExam.vue'
     import card4 from '../../assets/card4/info.json'
     import card8 from '../../assets/card8/info.json'
     export default {

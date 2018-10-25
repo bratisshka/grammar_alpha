@@ -5,7 +5,11 @@
             <div class="step-progress__step" v-for="(step, index) in steps"
                  :class="{'step-progress__step--valid': index <= currentStep}" @click="changeStep(step, index)">
                 <div class="step-progress__step_wrapper d-flex align-items-center justify-content-center">
-                    <span>{{ step.name }}</span>
+                    <div v-if="step.icon" class="img-wrapper">
+                        <img :src="icon_url(step.icon.after)" class="img-fluid" v-if="index <= currentStep">
+                        <img :src="icon_url(step.icon.before)" class="img-fluid" v-else>
+                    </div>
+                    <div v-else>{{ step.name }}</div>
                 </div>
             </div>
         </div>
@@ -45,9 +49,12 @@
             }
         },
         methods: {
-            changeStep(step, index){
+            changeStep(step, index) {
                 // TODO сделать плавнее
                 this.$router.push(step.router)
+            },
+            icon_url(icon) {
+                return require(`@/assets/icons/${icon}`);
             }
         }
     };
@@ -115,7 +122,7 @@
         transform: translate(-50%, -50%) perspective(1000px);
         min-width: 45px;
         min-height: 45px;
-        padding: 10px 15px;
+        padding: 10px;
         border-radius: 50px;
         transition: 0.3s ease;
         background-color: #D1DDE9;
@@ -126,7 +133,7 @@
 
     .step-progress__step--valid .step-progress__step_wrapper {
         background-color: #0D2D44;
-        color: #fff;
+        color: #D1DDE9;
     }
 
     @media (max-width: 767px) {

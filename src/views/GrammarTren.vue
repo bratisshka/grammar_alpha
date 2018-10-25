@@ -1,16 +1,16 @@
 <template>
     <div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-8">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" v-model="control_type"
                            value="simulator">
-                    <label class="form-check-label" for="inlineRadio1">Simulator</label>
+                    <label class="form-check-label" for="inlineRadio1">Тренажер</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" v-model="control_type"
                            value="player">
-                    <label class="form-check-label" for="inlineRadio2">Player</label>
+                    <label class="form-check-label" for="inlineRadio2">Плеер</label>
                 </div>
 
                 <grammar-component :examples="cards_data[current_card]" :card="current_card"
@@ -18,14 +18,13 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-md-12">
+            <div class="col-lg-8">
                 <div class="card mb-2" :class="{active: current_card==='card4'}">
                     <div class="gt-card-body" @click="current_card='card4'">
                         <div class="row">
                             <div class="col-9">
                                 <div class="card-text">
                                     <span class="gt-card-title"> Карточка 4. Местоимения</span>
-                                    <p>Прослушано <b>2 дня назад</b></p>
                                 </div>
                             </div>
                             <div class="col-3">
@@ -40,7 +39,6 @@
                             <div class="col-9">
                                 <div class="card-text">
                                     <span class="gt-card-title"> Карточка 8. Комбинирование</span>
-                                    <p>Прослушано <b>3 дня назад</b></p>
                                 </div>
                             </div>
                             <div class="col-3">
@@ -83,11 +81,11 @@
 </script>
 <style scoped>
     .active {
-        background-color: mediumseagreen;
+        background-color: #d1dde9;;
     }
 
     .gt-card-body {
-        margin: 5px;
+        margin: 15px;
         cursor: pointer;
     }
 

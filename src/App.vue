@@ -8,8 +8,8 @@
     </div>
 </template>
 <script>
-    import Heading from './components/SiteHeader.vue'
-    import Footing from './components/SiteFooter.vue'
+    import Heading from './components/Site/SiteHeader.vue'
+    import Footing from './components/Site/SiteFooter.vue'
 
     export default {
         components: {

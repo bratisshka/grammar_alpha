@@ -41,8 +41,8 @@
 
 <script>
 
-    import ContentViewer from "../../components/ContentViewer";
-    import StepProgress from "../../components/StepProgress"
+    import ContentViewer from "../../components/Lesson/ContentViewer";
+    import StepProgress from "../../components/Lesson/StepProgress"
 
     export default {
         name: "lesson-item",
@@ -108,6 +108,10 @@
                 steps: [
                     {
                         name: 'Введение',
+                        icon: {
+                            before: 'rocket.png',
+                            after: 'rocket_light.png'
+                        },
                         router: {name: 'lesson_intro', params: {id: 1}}
                     },
                     {
@@ -144,10 +148,18 @@
                     },
                     {
                         name: 'Visual',
+                        icon: {
+                            before: 'document.png',
+                            after: 'document_light.png'
+                        },
                         router: {name: 'simulator', params: {id: 1, type: 'visual'}}
                     },
                     {
                         name: 'Audio',
+                        icon: {
+                            before: 'speaker.png',
+                            after: 'speaker_light.png'
+                        },
                         router: {name: 'simulator', params: {id: 1, type: 'audio'}}
                     },
                 ],
