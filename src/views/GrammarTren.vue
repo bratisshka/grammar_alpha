@@ -2,19 +2,8 @@
     <div>
         <div class="row">
             <div class="col-lg-8">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" v-model="control_type"
-                           value="simulator">
-                    <label class="form-check-label" for="inlineRadio1">Тренажер</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" v-model="control_type"
-                           value="player">
-                    <label class="form-check-label" for="inlineRadio2">Плеер</label>
-                </div>
-
                 <grammar-component :examples="cards_data[current_card]" :card="current_card"
-                                   :control_type="control_type"></grammar-component>
+                                   :control_type="control_type" @changed_type="changeType"></grammar-component>
             </div>
         </div>
         <div class="row mt-5">
@@ -67,7 +56,12 @@
                 control_type: 'simulator'
             }
         },
-        methods: {},
+        methods: {
+            changeType(type) {
+                this.control_type = type;
+            }
+
+        },
         components: {
             GrammarComponent
         },

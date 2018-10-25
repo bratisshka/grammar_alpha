@@ -148,5 +148,9 @@
             min-height: 30px;
             font-size: 0.8rem;
         }
+
+        .img-wrapper {
+            width: 50%;
+        }
     }
 </style>

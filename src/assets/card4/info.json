@@ -1,82 +1,90 @@
 {
     "1.jpg": {
-        "id0": {
-            "en": "I love him",
-            "ru": "Я люблю его\r"
-        },
-        "id1": {
-            "en": "I teach her",
-            "ru": "Я учу ее\r"
-        }
+      "id0": {
+        "en": "I love her",
+        "ru": "Я люблю ее\r"
+      },
+      "id1": {
+        "en": "I teach him",
+        "ru": "Я учу его\r"
+      }
     },
     "2.jpg": {
-        "id2": {
-            "en": "I hate them",
-            "ru": "Я ненавижу их\r"
-        },
-        "id3": {
-            "en": "I love you",
-            "ru": "Я люблю тебя\r"
-        }
+      "id2": {
+        "en": "I hate them",
+        "ru": "Я ненавижу их\r"
+      },
+      "id3": {
+        "en": "I love you",
+        "ru": "Я люблю тебя\r"
+      }
     },
     "3.jpg": {
-        "id4": {
-            "en": "She trusts me",
-            "ru": "Она верит мне\r"
-        },
-        "id5": {
-            "en": "He teaches me",
-            "ru": "Он учит меня\r"
-        }
+      "id4": {
+        "en": "She trusts me",
+        "ru": "Она верит мне\r"
+      },
+      "id5": {
+        "en": "He teaches me",
+        "ru": "Он учит меня\r"
+      }
     },
     "4.jpg": {
-        "id6": {
-            "en": "It bothers her",
-            "ru": "[Это] беспокоит ее\r"
-        },
-        "id7": {
-            "en": "She knows it",
-            "ru": "Она знает это\r"
-        }
+      "id6": {
+        "en": "It bothers her",
+        "ru": "Это беспокоит ее\r"
+      },
+      "id7": {
+        "en": "She knows it",
+        "ru": "Она знает это\r"
+      },
+      "id8": {
+        "en": "He disapproves of it",
+        "ru": "Он не одобряет это\r"
+      }
     },
     "5.jpg": {
-        "id8": {
-            "en": "He trusts you",
-            "ru": "Он любит тебя\r"
-        },
-        "id9": {
-            "en": "It changes us",
-            "ru": "[Это] меняет нас\r"
-        }
+      "id9": {
+        "en": "He trusts you",
+        "ru": "Он верит тебе\r"
+      },
+      "id10": {
+        "en": "It changes us",
+        "ru": "Это меняет нас\r"
+      }
     },
     "6.jpg": {
-        "id10": {
-            "en": "You trust me",
-            "ru": "Ты веришь мне\r"
-        },
-        "id11": {
-            "en": "It changes us",
-            "ru": "[Это] меняет нас\r"
-        }
+      "id11": {
+        "en": "You trust me",
+        "ru": "Ты веришь мне\r"
+      },
+      "id12": {
+        "en": "They teach me",
+        "ru": "Они учат меня\r"
+      }
     },
     "7.jpg": {
-        "id12": {
-            "en": "They bother us",
-            "ru": "Они беспокоят нас\r"
-        },
-        "id13": {
-            "en": "You help them",
-            "ru": "Ты помогаешь им\r"
-        }
+      "id13": {
+        "en": "They bother us",
+        "ru": "Они беспокоят нас\r"
+      },
+      "id14": {
+        "en": "We rely on you",
+        "ru": "Мы рассчитываем на тебя\r"
+      },
+      "id15": {
+        "en": "You help them",
+        "ru": "Ты помогаешь им\r"
+      }
     },
     "8.jpg": {
-        "id14": {
-            "en": "We trust him",
-            "ru": "Мы доверяем ему\r"
-        },
-        "id15": {
-            "en": "We love it",
-            "ru": "Мы любим [это]"
-        }
+      "id16": {
+        "en": "We trust him",
+        "ru": "Мы доверяем ему\r"
+      },
+      "id17": {
+        "en": "We love it",
+        "ru": "Мы любим это"
+      }
     }
-}
+  }

@@ -1,124 +1,192 @@
 {
-  "9.jpg": {
-    "id0": {
-      "en": "Life teaches",
-      "ru": "Жизнь учит\r"
+    "9.jpg": {
+      "id0": {
+        "en": "Life teaches",
+        "ru": "Жизнь учит\r"
+      },
+      "id1": {
+        "en": "Life changes",
+        "ru": "Жизнь меняется\r"
+      },
+      "id2": {
+        "en": "Time flies",
+        "ru": "Время летит\r"
+      }
     },
-    "id1": {
-      "en": "Life changes",
-      "ru": "Жизнь меняется\r"
+    "10.jpg": {
+      "id3": {
+        "en": "The world belongs to you",
+        "ru": "Мир пренадлежит тебе\r"
+      },
+      "id4": {
+        "en": "Perseverance leads to success",
+        "ru": "Упорство ведет к успеху\r"
+      },
+      "id5": {
+        "en": "Actions define a person",
+        "ru": "Поступки определяют человека\r"
+      },
+      "id6": {
+        "en": "Power tests character",
+        "ru": "Власть испытывает характер\r"
+      },
+      "id7": {
+        "en": "Optimists rule the world",
+        "ru": "Оптимисты правят миром\r"
+      },
+      "id8": {
+        "en": "Doubts disarm the intentions",
+        "ru": "Сомнения обезоруживают замыслы\r"
+      },
+      "id9": {
+        "en": "Imagination molds the reality",
+        "ru": "Воображение создает реальность\r"
+      },
+      "id10": {
+        "en": "You make progress",
+        "ru": "Ты совершаешь прогресс\r"
+      },
+      "id11": {
+        "en": "We create the reality",
+        "ru": "Мы создаем реальность\r"
+      },
+      "id12": {
+        "en": "Dad writes a book",
+        "ru": "Отец пишет книгу\r"
+      }
     },
-    "id2": {
-      "en": "Time flies",
-      "ru": "Время летит\r"
-    }
-  },
-  "10.jpg": {
-    "id3": {
-      "en": "Actions define a person",
-      "ru": "Поступки определяют человека\r"
+    "11.jpg": {
+      "id13": {
+        "en": "Great achievements take time",
+        "ru": "Великие достижения требуют времени\r"
+      },
+      "id14": {
+        "en": "Hard work builds character",
+        "ru": "Тяжелая работа закаляет характер\r"
+      },
+      "id15": {
+        "en": "Big minds change the world",
+        "ru": "Великие умы меняют мир\r"
+      }
     },
-    "id4": {
-      "en": "Doubts disarm the intentions",
-      "ru": "Сомнения обезоруживают замыслы\r"
+    "12.jpg": {
+      "id16": {
+        "en": "Fate loves fearless people",
+        "ru": "Судьба любит бесстрашных людей\r"
+      },
+      "id17": {
+        "en": "Justice has different faces",
+        "ru": "Справедливость имеет разные лица\r"
+      },
+      "id18": {
+        "en": "Mistakes lead to big discoveries",
+        "ru": "Ошибки приводят к большим открытиям\r"
+      }
     },
-    "id5": {
-      "en": "Imagination molds the reality",
-      "ru": "Воображение создает реальность\r"
-    }
-  },
-  "11.jpg": {
-    "id6": {
-      "en": "Great achievements take time",
-      "ru": "Великие достижения требуют времени\r"
+    "13.jpg": {
+      "id19": {
+        "en": "Big success comes insensibly",
+        "ru": "Большой успех приходит незаметно\r"
+      },
+      "id20": {
+        "en": "A wise man speaks quietly",
+        "ru": "Мудрый человек говорит медленно\r"
+      }
     },
-    "id7": {
-      "en": "Hard work builds character",
-      "ru": "Тяжелая работа закаляет характер\r"
+    "14.jpg": {
+      "id21": {
+        "en": "They solve problems immediately",
+        "ru": "Они решают проблемы незамедлительно\r"
+      },
+      "id22": {
+        "en": "I work on myself daily",
+        "ru": "Я работаю над собой каждый день\r"
+      },
+      "id23": {
+        "en": "He overcomes obstacles easily",
+        "ru": "Он преодолевает препятствия легко\r"
+      }
     },
-    "id8": {
-      "en": "Big minds change the world",
-      "ru": "Великие умы меняют мир\r"
-    }
-  },
-  "12.jpg": {
-    "id9": {
-      "en": "Fate loves fearless people",
-      "ru": "Судьба любит бесстрашных людей\r"
+    "15.jpg": {
+      "id24": {
+        "en": "Fears always outnumber the dangers",
+        "ru": "Страхи всегда превышают опасности\r"
+      },
+      "id25": {
+        "en": "Hesitation always increases fears",
+        "ru": "Беспокойство увеличивает страхи\r"
+      },
+      "id26": {
+        "en": "Intuition usually goes before knowledge",
+        "ru": "Интуиция обычно опережает знание\r"
+      }
     },
-    "id10": {
-      "en": "Justice has different faces",
-      "ru": "Справедливость имеет разные лица\r"
+    "16.jpg": {
+      "id27": {
+        "en": "Beautiful life begins with a beautiful thought",
+        "ru": "Красивая жизнь начинается с красивой мысли\r"
+      },
+      "id28": {
+        "en": "A beautiful day begins with a right mindset",
+        "ru": "Прекрасный день начинается с правильного настроя\r"
+      },
+      "id29": {
+        "en": "Great results require great efforts",
+        "ru": "Большие результаты требуют больших усилий\r"
+      }
     },
-    "id11": {
-      "en": "Mistakes lead to big discoveries",
-      "ru": "Ошибки приводят к большим открытиям\r"
-    }
-  },
-  "13.jpg": {
-    "id12": {
-      "en": "They solve problems immediately",
-      "ru": "Они решают проблемы незамедлительно\r"
+    "17.jpg": {
+      "id30": {
+        "en": "We rarely give hasty answers",
+        "ru": "Мы редко даем поспешные ответы\r"
+      },
+      "id31": {
+        "en": "I always look for positive sides",
+        "ru": "Я всегда ищу позитивные стороны\r"
+      },
+      "id32": {
+        "en": "She always stays in a good mood",
+        "ru": "Она всегда пребывает в хорошем настроении\r"
+      }
     },
-    "id13": {
-      "en": "I work on myself daily",
-      "ru": "Я работаю над собой [каждый день]\r"
+    "18.jpg": {
+      "id33": {
+        "en": "Good friends usually speak unpleasant truth",
+        "ru": "Хорошие друзья обычно говорят горькую правду\r"
+      },
+      "id34": {
+        "en": "Resolute people usually reach greater heights",
+        "ru": "Решительные люди часто достигают больших высот \r"
+      },
+      "id35": {
+        "en": "Right decisions often proceed from proper questions",
+        "ru": "Правильные решения часто происходят из правильных вопросов\r"
+      },
+      "id36": {
+        "en": "True beauty always comes from clear mind ",
+        "ru": "Настоящая красота всегда происходит из светлого ума\r"
+      },
+      "id37": {
+        "en": "Happy future usually derives from the proper present",
+        "ru": "Счастливое будущее обычно вытекает из правильного настоящего\r"
+      }
     },
-    "id14": {
-      "en": "He overcomes obstacles easily",
-      "ru": "Он преодолевает препятствия легко\r"
-    }
-  },
-  "14.jpg": {
-    "id15": {
-      "en": "Fears always outnumber the dangers",
-      "ru": "Страхи всегда превышают опасности\r"
-    },
-    "id16": {
-      "en": "Hesitation always increases fears",
-      "ru": "Беспокойство увеличивает страхи\r"
-    },
-    "id17": {
-      "en": "Intuition usually goes before knowledge",
-      "ru": "Интуиция обычно опережает знание\r"
-    }
-  },
-  "15.jpg": {
-    "id18": {
-      "en": "Beautiful life begins with a beautiful thought",
-      "ru": "Красивая жизнь начинается с красивой мысли\r"
-    },
-    "id19": {
-      "en": "A beautiful day begins with a right mindset",
-      "ru": "Прекрасный день начинается с правильного настроя\r"
-    },
-    "id20": {
-      "en": "Great results require great efforts",
-      "ru": "Большие результаты требуют больших усилий\r"
-    }
-  },
-  "16.jpg": {
-    "id21": {
-      "en": "We rarely give hasty answers",
-      "ru": "Мы редко даем поспешные ответы\r"
-    },
-    "id22": {
-      "en": "I always look for positive sides",
-      "ru": "Я всегда ищу позитивные стороны\r"
-    },
-    "id23": {
-      "en": "She always stays in a good mood",
-      "ru": "Она всегда пребывает в хорошем настроении\r"
-    }
-  },
-  "17.jpg": {
-    "id24": {
-      "en": "Wise people rarely give definite answers immediately",
-      "ru": "Мудрые люди редко дают окончательный ответ незамедлительно\r"
-    },
-    "id25": {
-      "en": "Successful people always accept bad experience gratefully",
-      "ru": "Успешные люди всегда принимают плохой опыт с благодарностью"
+    "19.jpg": {
+      "id38": {
+        "en": "Wise people rarely give definite answers immediately",
+        "ru": "Мудрые люди редко дают окончательный ответ незамедлительно\r"
+      },
+      "id39": {
+        "en": "A successful person always accepts bad experience gratefully",
+        "ru": "Успешный человек всегда принимает плохой опыт с благодарностью\r"
+      },
+      "id40": {
+        "en": "An intelligent man seldom makes important decisions hastily",
+        "ru": "Умный человек редко принимает важные решения поспешно\r"
+      },
+      "id41": {
+        "en": "Ambitious people usually pursue private interests aggressively",
+        "ru": "Амбициозные люди обычно преследуют личные интересы настойчиво"
+      }
     }
   }
-}
