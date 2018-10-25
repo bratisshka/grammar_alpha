@@ -1,12 +1,11 @@
 <template>
     <div id="article">
-        <div v-html="heading.content"></div>
         <div v-for="(block, index) in content">
-            <div class="card mb-2" v-if="block.image">
+            <div class="card mb-2" v-if="block.media.type===contentType.IMAGE" :class="{'last': index===content.length-1}">
                 <div class="row">
                     <div class="col-sm-3 mb-sm-0 mb-3" :class="{'order-sm-12': index % 2}">
                         <div class="img-wrapper d-flex justify-content-center align-items-center">
-                            <img v-if="block.image.content" :src="block.image.content"/>
+                            <img v-if="block.media.content" :src="block.media.content"/>
                         </div>
                     </div>
                     <div class="col-sm-9 ">
@@ -14,35 +13,44 @@
                     </div>
                 </div>
             </div>
+            <!--после текста блок ютуба -->
             <div v-else>
                 <div class="row">
                     <div class="col">
                         <div v-html="block.text.content"></div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="videoWrapper">
+                            <div v-html="block.media.content" v-if="block.media.content"></div>
+                            <div v-html="DEFAULT_YOUTUBE_URL" v-else></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!--<div class="m-1">-->
-            <!--<div v-if="block.type===contentType.IMAGE">-->
-            <!--<img v-if="block.content" class="img-fluid" :src="block.content"/>-->
-            <!--<img v-else class="img-fluid" :src="DEFAULT_IMAGE_URL"/>-->
-            <!--</div>-->
-            <!--<div v-else-if="block.type===contentType.YOUTUBE">-->
-            <!--<div v-html="block.content" v-if="block.content"></div>-->
-            <!--<div v-html="DEFAULT_YOUTUBE_URL" v-else></div>-->
-            <!--</div>-->
-            <!--<div v-else-if="block.type===contentType.LABELED_TEXT" :class="block.type">-->
-            <!--<div class="labeled_emoji" v-if="block.emoji">-->
-            <!--<emoji :emoji="block.emoji" :size="40"/>-->
-            <!--</div>-->
-            <!--<div class="labeled_content">-->
-            <!--<div v-html="block.content"></div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div :class="block.type" v-else>-->
-            <!--<div v-html="block.content"></div>-->
-            <!--</div>-->
-            <!--</div>-->
         </div>
+        <!--<div class="m-1">-->
+        <!--<div v-if="block.type===contentType.IMAGE">-->
+        <!--<img v-if="block.content" class="img-fluid" :src="block.content"/>-->
+        <!--<img v-else class="img-fluid" :src="DEFAULT_IMAGE_URL"/>-->
+        <!--</div>-->
+        <!--<div v-else-if="block.type===contentType.YOUTUBE">-->
+        <!--<div v-html="block.content" v-if="block.content"></div>-->
+        <!--<div v-html="DEFAULT_YOUTUBE_URL" v-else></div>-->
+        <!--</div>-->
+        <!--<div v-else-if="block.type===contentType.LABELED_TEXT" :class="block.type">-->
+        <!--<div class="labeled_emoji" v-if="block.emoji">-->
+        <!--<emoji :emoji="block.emoji" :size="40"/>-->
+        <!--</div>-->
+        <!--<div class="labeled_content">-->
+        <!--<div v-html="block.content"></div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div :class="block.type" v-else>-->
+        <!--<div v-html="block.content"></div>-->
+        <!--</div>-->
+        <!--</div>-->
     </div>
 </template>
 
@@ -61,36 +69,24 @@
                 DEFAULT_IMAGE_URL: "http://www.independentmediators.co.uk/wp-content/uploads/2016/02/placeholder-image.jpg",
                 DEFAULT_YOUTUBE_URL: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&amp;showinfo=0\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>",
                 contentType: {
-                    "IMAGE": "image",
-                    "GOALS": "goals",
-                    "EXAMPLE": "example",
-                    "TEXT": "text",
-                    "LABELED_TEXT": "labeled_text",
-                    "YOUTUBE": "youtube"
+                    IMAGE: "image",
+                    GOALS: "goals",
+                    EXAMPLE: "example",
+                    TEXT: "text",
+                    LABELED_TEXT: "labeled_text",
+                    YOUTUBE: "youtube"
                 },
             }
         },
         computed: {
-            heading() {
-                return this.blocks[0];
-            },
             content() {
                 let content = [];
-                let cont_blocks = this.blocks.slice(1);
+                let cont_blocks = this.blocks;
                 for (let i = 0; i < cont_blocks.length; i += 2) {
-                    if (cont_blocks[i + 1].type === "text") {
-                        // два текстовых блока подряд, надо сбросить
-                        content.push({
-                            "text": cont_blocks[i],
-                            "image": undefined
-                        });
-                        i -= 1;
-                    } else {
-                        content.push({
-                            "text": cont_blocks[i],
-                            "image": cont_blocks[i + 1],
-                        })
-                    }
+                    content.push({
+                        "text": cont_blocks[i],
+                        "media": cont_blocks[i + 1]
+                    });
                 }
                 return content
             }
@@ -134,7 +130,9 @@
         border-top: 0;
         border-radius: 0;
     }
-
+    .last {
+        border-bottom: 0;
+    }
     #article {
         font-family: 'Roboto', sans-serif;
         font-size: 1rem;
@@ -160,7 +158,8 @@
         font-size: 1.8rem;
         text-transform: uppercase;
         font-weight: 900;
-        margin-top: 30px;
+        margin-bottom: 20px;
+        border-top: 15px;
     }
 
     #article >>> h3 {
@@ -182,6 +181,21 @@
         font-family: 'EB Garamond', serif;
     }
 
+    #article >>> .videoWrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+    }
+
+    #article >>> .videoWrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
     .img-wrapper {
         height: 100%;
     }
@@ -199,22 +213,26 @@
     }
 
     @media (max-width: 576px) {
-        .card, .card-body {
+        .card {
             padding-left: 0;
             padding-right: 0;
             font-size: 16px;
             line-height: 22px;
         }
-
+        .col, .col-sm-9, .col-sm-3 {
+            padding-left: 0;
+            padding-right: 0;
+        }
         #article >>> h2 {
             /*font-size: 28px;*/
-            margin-top: 30px;
+            /*margin-top: 30px;*/
         }
 
         .card img {
             max-width: 50%;
             max-height: 50%;
         }
+
         .img-wrapper {
             height: inherit;
             /*width: 50%;*/
