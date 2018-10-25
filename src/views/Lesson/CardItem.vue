@@ -1,60 +1,17 @@
 <template>
-    <div>
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Урок #{{lesson.number}}</h2>
-                <h2>{{lesson.name}}</h2>
-            </div>
-            <div class="col-md-6">
-                <div v-html="lesson.description" class="gr-lesson-content"></div>
-            </div>
-        </div>
-        <carousel :per-page="10" :space-padding="0" :navigate-to="Math.floor(parseInt($route.params.number)/10)"
-                  :pagination-padding="5">
-            <slide v-for="card in lesson.cards">
-                <router-link :to="{name: 'card', params: {id: $route.params.id, number: card.number}}">
-                    <div class="gr-card" :class="cardObject(card)">
-                        Card {{card.number}}
-                    </div>
-                </router-link>
-            </slide>
-            <slide>
-                <router-link :to="{name: 'simulator', params: {id: $route.params.id, type: 'visual'}}">
-                    <div class="gr-card visual">
-                        Visual
-                    </div>
-                </router-link>
-            </slide>
-            <slide>
-                <router-link :to="{name: 'simulator', params: {id: $route.params.id, type: 'audio'}}">
-                    <div class="gr-card audio">
-                        Audio
-                    </div>
-                </router-link>
-            </slide>
-        </carousel>
-        <div class="row mt1">
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-body">
-                        <content-viewer :blocks="cards_data[$route.params.number-1]"></content-viewer>
-                        <div v-if="lesson.cards[$route.params.number-1].has_practice">
-                            <examples-trainer
-                                    :examples="examples[lesson.cards[$route.params.number-1].number]"
-                                    :number="lesson.cards[$route.params.number-1].number"></examples-trainer>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h3>Содержание урока #{{$route.params.id}}</h3>
+    <div class="row mt1">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <content-viewer :blocks="cards_data[$route.params.number-1]"></content-viewer>
+                    <div v-if="lesson.cards[$route.params.number-1].has_practice">
+                        <examples-trainer
+                                :examples="examples[lesson.cards[$route.params.number-1].number]"
+                                :number="lesson.cards[$route.params.number-1].number"></examples-trainer>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -173,6 +130,7 @@
     .visual {
         background-color: yellow;
     }
+
     .visual_active {
         background-color: gold;
     }
