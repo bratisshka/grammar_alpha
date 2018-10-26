@@ -1,71 +1,94 @@
 <template>
     <div>
-        <div class="row">
+        <div class="row mb-3">
+            <div class="col-sm-6 mb-2 mb-sm-0">
+                <div class="d-flex justify-content-center">
+                    <div class="gr-btn mr-2 img-btn" :class="{'gr-active': control_type==='simulator'}"
+                         @click="control_type='simulator'">
+                        <div class="img-wrapper img-fluid">
+                            <img src="@/assets/icons/document.png" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="gr-btn img-btn" :class="{'gr-active': control_type==='player'}"
+                         @click="control_type='player'">
+                        <div class="img-wrapper img-fluid">
+                            <img src="@/assets/icons/speaker.png" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-sm-6">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" v-model="control_type"
-                           value="simulator">
-                    <label class="form-check-label" for="inlineRadio1">Тренажер</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" v-model="control_type"
-                           value="player">
-                    <label class="form-check-label" for="inlineRadio2">Плеер</label>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div v-if="order==='enru'">
-                    <div class="btn btn-success mr-2">EN-RU</div>
-                    <div class="btn btn-outline-success" @click="order='ruen'; step=['ru', 'en']">RU-EN</div>
-                </div>
-                <div v-if="order==='ruen'">
-                    <div class="btn btn-outline-success mr-2" @click="order='enru'; step=['en', 'ru']">EN-RU</div>
-                    <div class="btn btn-success">RU-EN</div>
+                <div class="d-flex justify-content-center">
+                    <div v-if="order==='enru'">
+                        <div class="gr-btn gr-active mr-2 no-select">EN-RU</div>
+                        <div class="gr-btn no-select" @click="order='ruen'; step=['ru', 'en']">RU-EN</div>
+                    </div>
+                    <div v-if="order==='ruen'">
+                        <div class="gr-btn mr-2 no-select" @click="order='enru'; step=['en', 'ru']">EN-RU</div>
+                        <div class="gr-btn gr-active no-select">RU-EN</div>
+                    </div>
                 </div>
             </div>
         </div>
+
+
+        <!--статистка-->
         <div class="row">
-            <div class="col-md-5">
-                <h3 class="right-text">Пример {{current_index+1}} из {{example_list.length}}</h3>
+            <div class="col-md-9">
+                <span class="grammar-header">Урок {{meta.lesson_number}}. Карточка {{meta.card_number}}. {{meta.card_name}}</span>
+            </div>
+            <div class="col-md-3">
+                <h3 class="text-right">{{current_index+1}}/{{example_list.length}}</h3>
             </div>
         </div>
-        <div class="card mb-1">
-            <img :src="image_url(example_list[current_index].image)" class="img-fluid gt-img d-block mx-auto">
+
+
+        <!--картинка-->
+        <div class="mb-1 sentence-img">
+            <div class="img-wrapper">
+                <img :src="image_url(example_list[current_index].image)" class="img-fluid gt-img d-block mx-auto">
+            </div>
         </div>
-        <div class="card mb-1" style="min-height: 75px">
-            <div class="card-body">
-                <div class="float-left">
+
+
+        <!--предложения-->
+        <div class="card mb-1" style="height: 75px">
+            <div class="d-flex h100 gr-card-body">
+                <div class="d-flex align-items-center h100 mr-2">
                     <i class="material-icons" @click="playAudio(example_list[current_index].id, step[0])">
                         volume_up
                     </i>
                 </div>
-                <div class="text-center">
+                <div class="d-flex align-items-center justify-content-center h100 flex-grow-1">
                     {{example_list[current_index][step[0]]}}
                 </div>
             </div>
         </div>
-        <div class="card mb-1" style="min-height: 75px">
-            <div class="card-body">
-                <div v-show="step_index === 1">
-                    <div class="float-left">
-                        <i class="material-icons" @click="playAudio(example_list[current_index].id, step[1])">
-                            volume_up
-                        </i>
-                    </div>
-                    <div class="text-center">
-                        {{example_list[current_index][step[1]]}}
-                    </div>
+        <div class="card mb-1" style="height: 75px">
+            <div class="d-flex h100 gr-card-body" v-if="step_index === 1">
+                <div class="d-flex align-items-center h100 mr-2">
+                    <i class="material-icons" @click="playAudio(example_list[current_index].id, step[1])">
+                        volume_up
+                    </i>
+                </div>
+                <div class="d-flex align-items-center justify-content-center h100 flex-grow-1">
+                    {{example_list[current_index][step[1]]}}
                 </div>
             </div>
         </div>
+
+
+        <!--стрелки-->
         <div class="row">
             <div class="col-3">
-                <div class="btn btn-outline-primary btn-block" @click="prevSentence()">
-                    Prev
+                <div class="img-row d-flex justify-content-center" @click="prevSentence()">
+                    <div class="img-wrapper">
+                        <img src="@/assets/icons/left.png" class="img-fluid">
+                    </div>
                 </div>
             </div>
             <div class="col-6">
-                <div class="btn btn-outline-success btn-block" @click="nextStep()" v-if="control_type==='simulator'">
+                <div class="btn btn-success btn-block" @click="nextStep()" v-if="control_type==='simulator'">
                     Далее
                 </div>
                 <div class="btn btn-outline-success btn-block" v-else @click="autoSentencePlay">
@@ -74,8 +97,10 @@
                 </div>
             </div>
             <div class="col-3">
-                <div class="btn btn-outline-primary btn-block" @click="nextSentence()">
-                    Next
+                <div class="img-row d-flex justify-content-center" @click="nextSentence()">
+                   <div class="img-wrapper">
+                        <img src="@/assets/icons/right.png" class="img-fluid">
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,7 +110,7 @@
 <script>
     export default {
         name: "grammar-component",
-        props: ['examples', 'card', 'control_type'],
+        props: ['examples', 'card', 'meta'],
         data() {
             return {
                 base_url: process.env.BASE_URL,
@@ -100,6 +125,7 @@
                 step_index: -1,
                 is_playing: false,
                 snd: "",
+                control_type: 'simulator'
             }
         },
         methods: {
@@ -210,4 +236,60 @@
         cursor: pointer;
     }
 
+    .grammar-header {
+        font-size: 25px;
+    }
+
+    .gr-btn {
+        cursor: pointer;
+        border: 1px solid #0D2D44;
+        text-align: center;
+        color: #0D2D44;
+        padding: 5px 15px;
+        border-radius: 5px;
+        display: inline-block;
+        height: 36px;
+    }
+
+    .img-btn {
+        padding: 5px 30px !important;
+    }
+
+    .img-btn .img-fluid {
+        height: 100%;
+    }
+
+    .gr-btn:hover {
+        background-color: #D1DDE9;
+    }
+
+    .gr-active {
+        background-color: #D1DDE9;
+    }
+
+    .img-wrapper {
+        height: 100%;
+    }
+
+    .img-row {
+        height: 38px;
+        cursor: pointer;
+    }
+
+    .img-row .img-fluid {
+        height: 100%;
+    }
+
+    .sentence-img {
+        height: 75px;
+        border: none;
+    }
+
+    .h100 {
+        height: 100%;
+    }
+
+    .gr-card-body {
+        padding: 10px;
+    }
 </style>

@@ -57,8 +57,17 @@
         text-transform: uppercase;
         padding: 15px
     }
+
     /*Ебаный костыль для библиотеки прогресса*/
     .circle-percent-text-body {
         top: 0 !important;
+    }
+
+    .no-select {
+        user-select: none;
+        -o-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
     }
 </style>
