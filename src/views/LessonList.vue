@@ -1,32 +1,38 @@
 <template>
     <div>
-        <div class="row mb-3" v-for="lesson in lesson_list">
+        <div class="row mb-3" v-for="(lesson, index) in lesson_list">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="lesson-header bg-black"><b>Урок 1.</b> Основы</div>
+                    <div class="lesson-header bg-black"><b>Урок {{index+1}}.</b> {{lesson.name}}</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-4">
-                                <img :src="lesson.image" class="img-fluid">
+                                <img :src="lesson.image" class="img-fluid" v-if="lesson.image">
+                                <img :src="placeholder_lesson()" class="img-fluid" v-else>
                             </div>
                             <div class="col-sm-8 mb-2">
-                                <div class="card-content d-flex align-items-center">
-                                    <div v-html="lesson.description"></div>
+                                <div class="card-content">
+                                    <h5><b>Цели:</b></h5>
+                                    <ol>
+                                        <li v-for="goal in lesson.goals">
+                                            {{goal}}
+                                        </li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center mt-1">
                             <div class="mr-3 d-flex align-items-center">
                                 <img class="stats-icon mr-2"
                                      src="https://cdn0.iconfinder.com/data/icons/everyday-objects-line-art-1/128/stopwatch-512.png">
-                                <span class="stats-text">26 min</span>
+                                <span class="stats-text">{{lesson.time}} min</span>
                             </div>
                             <div class="mr-auto d-flex align-items-center">
                                 <img class="stats-icon mr-2"
                                      src="https://cdn2.iconfinder.com/data/icons/simple-medical/256/Dr._Slip-512.png">
-                                <span class="stats-text">8 cards</span>
+                                <span class="stats-text">{{lesson.examples}} cards</span>
                             </div>
-                            <router-link :to="{ name: 'lesson_intro', params: { id: lesson.number}}">
+                            <router-link :to="{ name: 'lesson_intro', params: { id: index}}" v-if="index===0">
                                 <div class="btn btn-success float-right">Начать</div>
                             </router-link>
                         </div>
@@ -40,12 +46,14 @@
 </template>
 
 <script>
+    import lesson_list from "../assets/plan_of_lessons";
 
     export default {
         name: 'home',
         components: {},
         data() {
             return {
+                 base_url: process.env.BASE_URL,
                 "lesson_list": [
                     {
                         "number": 1,
@@ -57,6 +65,15 @@
                         "tren_count": 115
                     }
                 ]
+            }
+        },
+        created() {
+            this.lesson_list = lesson_list;
+        },
+        methods: {
+            placeholder_lesson() {
+                return this.base_url + 'images/placeholder_lesson.png'
+
             }
         }
     }
@@ -98,12 +115,12 @@
         height: 100%;
     }
 
-    .card-content >>> p {
+    .card-content > > > p {
         margin-bottom: 0;
         font-size: 1rem;
     }
 
-    .card-content >>> ol {
+    .card-content > > > ol {
         padding-left: 1rem;
         line-height: 1.3rem;
         margin-bottom: 0;
